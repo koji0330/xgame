@@ -17,13 +17,18 @@ $(function(){
         list: [
             '一気飲み',
             '変顔',
-            'ふがふが',
-            'ビンタ',
-            'シッペ',
-            'ふがふが',
+            '近くの人から肩パンチ',
+            '変顔',
+            '一発ギャグ',
+            '全員からビンタ',
+            '右隣の人からビンタ',
+            '全員からシッペ',
+            '右隣の人かシッペ',
             'ものまね'
         ],
-        button: $("#button-wrapper input")
+        button: $("#button-wrapper input"),
+        labelStart: 'スタート',
+        labelStop: 'ストップ'
     });
 });
 </script>
@@ -34,16 +39,20 @@ $(function(){
     <h1>罰ゲームジェネレータ</h1>
 </div><!-- /header -->
 <div data-role="content" id="content">
-    <div id="roller"></div>
-    <div id="button-wrapper">
-        <input type="button" value="start / stop">
+    <div id="roller-wrapper">
+        <div id="roller"></div>
+        <div id="button-wrapper">
+            <input type="button" value="start / stop" data-inline="true" data-theme="a">
+        </div>
     </div>
 </div><!-- /content -->
+<!--
 <div data-role="footer" data-position="fixed" class="ui-bar">
-<!--  fugafuga -->
     <a href="#config" data-role="button" data-icon="gear">Config</a>
     <a href="#config" data-role="button" data-icon="info">Help</a>
-</div><!-- /footer -->
+</div>
+-->
+<!-- /footer -->
 </div>
 </body>
 </html>

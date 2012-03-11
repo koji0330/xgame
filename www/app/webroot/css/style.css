@@ -14,10 +14,26 @@
     margin-left: 0;
     margin-right: 0;
 }
+div[data-role='page'] {
+    background: #000;
+}
+div[data-role='content']#content {
+    background: transparent;
+}
+div[data-role='footer'] {
+    text-align: right;
+}
 
 /**
  * Widget style
  */
+div#roller-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    right: 10px;
+    margin-top: -6em;
+}
 div#roller {
     text-shadow: none;
     height: 3em;
@@ -25,23 +41,42 @@ div#roller {
     text-align: center;
     overflow: hidden;
     line-height: 1.25;
-    border: 1px solid #ccc;
-    margin: 2em 10px;
-    background: -moz-linear-gradient(top, #000, #fff 10%, #fff 90%, #000);
+    margin: 0.5em auto;
+    max-width: 11em;
+    min-width: 4em;
+    background: -moz-linear-gradient(
+        top,
+        #333,
+        #ddd 20%,
+        #fff 40%,
+        #fff 50%,
+        #ddd 80%,
+        #333
+    );
     background: -webkit-gradient(
         linear,
         left top,
         left bottom,
-        from(#333),
+        from(#666),
         color-stop(0.2, #ddd),
         color-stop(0.4, #fff),
-        color-stop(0.5, #fff),
         color-stop(0.8, #ddd),
-        to(#333)
+        to(#666)
     );
+    -moz-box-shadow: inset 0 0 10px #000;
+    -webkit-box-shadow: inset 0 0 10px #000;
+    box-shadow: inset 0 0 10px #000;
 }
 div#roller ul {
     margin: -0.375em 0;
-    padding: 0;
+    padding: 0 10px;
     list-style: none;
+}
+div#roller ul li {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+div#button-wrapper {
+    text-align: center;
 }

@@ -44,13 +44,25 @@ $.widget("mobile.xgame",
          */
         list: undefined,
         /**
-         * Interval
+         * Interval start value
          *
          * @type    Number
          * @default 100
          */
-        interval: 100,
+        intervalStart: 100,
+        /**
+         * Interval step value
+         *
+         * @type    Number
+         * @default 100
+         */
         intervalStep: 100,
+        /**
+         * Interval end value
+         *
+         * @type    Number
+         * @default 700
+         */
         intervalEnd: 700,
         /**
          * View count
@@ -124,7 +136,7 @@ $.widget("mobile.xgame",
         _self.options.button.bind('click', function(){
             _self.run = !_self.run;
             if(_self.run){
-                _self.interval = _self.options.interval;
+                _self.interval = _self.options.intervalStart;
                 _self._wheel();
                 $(this).parent().find('.ui-btn-text').text(_self.options.labelStop);
             }else{
