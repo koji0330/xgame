@@ -1,0 +1,47 @@
+/**
+ * Override default style
+ */
+.ui-header .ui-title,
+.ui-footer .ui-title,
+.ui-btn-inner,
+.ui-li-heading,
+.ui-li .ui-btn-text a.ui-link-inherit,
+.ui-li-desc {
+    overflow: visible;
+    white-space: normal;
+}
+.ui-header .ui-title {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/**
+ * Widget style
+ */
+div#roller {
+    text-shadow: none;
+    height: 3em;
+    font-size: 200%;
+    text-align: center;
+    overflow: hidden;
+    line-height: 1.25;
+    border: 1px solid #ccc;
+    margin: 2em 10px;
+    background: -moz-linear-gradient(top, #000, #fff 10%, #fff 90%, #000);
+    background: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        from(#333),
+        color-stop(0.2, #ddd),
+        color-stop(0.4, #fff),
+        color-stop(0.5, #fff),
+        color-stop(0.8, #ddd),
+        to(#333)
+    );
+}
+div#roller ul {
+    margin: -0.375em 0;
+    padding: 0;
+    list-style: none;
+}

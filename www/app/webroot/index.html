@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>罰ゲームジェネレータ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.css" />
+<link rel="stylesheet" href="css/style.css" type="text/css">
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>
+<script src="js/jquery.mobile.xgame.js"></script>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+$(function(){
+    $('#roller').xgame({
+        list: [
+            '一気飲み',
+            '変顔',
+            'ふがふが',
+            'ビンタ',
+            'シッペ',
+            'ふがふが',
+            'ものまね'
+        ],
+        button: $("#button-wrapper input")
+    });
+});
+</script>
+</head>
+<body>
+<div data-role="page">
+<div data-role="header">
+    <h1>罰ゲームジェネレータ</h1>
+</div><!-- /header -->
+<div data-role="content" id="content">
+    <div id="roller"></div>
+    <div id="button-wrapper">
+        <input type="button" value="start / stop">
+    </div>
+</div><!-- /content -->
+<div data-role="footer" data-position="fixed" class="ui-bar">
+<!--  fugafuga -->
+    <a href="#config" data-role="button" data-icon="gear">Config</a>
+    <a href="#config" data-role="button" data-icon="info">Help</a>
+</div><!-- /footer -->
+</div>
+</body>
+</html>
