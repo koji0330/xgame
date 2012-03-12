@@ -118,6 +118,9 @@ $.widget("mobile.xgame",
         _self._initRoller();
         _self._initButton();
     },
+    /**
+     * Initialize roller
+     */
     _initRoller: function(){
         var _self = this,
             index,
@@ -130,6 +133,9 @@ $.widget("mobile.xgame",
             _self.ul.append(pushList);
         }
     },
+    /**
+     * Initialize button
+     */
     _initButton: function(){
         var _self = this;
         _self.options.button.parent().find('.ui-btn-text').text(_self.options.labelStart);
@@ -146,6 +152,9 @@ $.widget("mobile.xgame",
             return false;
         });
     },
+    /**
+     * Wheel
+     */
     _wheel: function(){
         var _self = this,
             index = Math.floor(Math.random() * _self.options.list.length),
