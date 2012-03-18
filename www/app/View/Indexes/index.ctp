@@ -1,27 +1,32 @@
 <?php
 $this->Html->scriptBlock("
 $(function(){
-    $('#roller').xgame({
-        list: [
-            '一気飲み',
-            '変顔',
-            '近くの人から肩パンチ',
-            '変顔',
-            '一発ギャグ',
-            '全員からビンタ',
-            '右隣の人からビンタ',
-            '全員からシッペ',
-            '右隣の人かシッペ',
-            'ものまね'
-        ],
-        button: $('#button-wrapper input'),
-        labelStart: 'スタート',
-        labelStop: 'ストップ'
+    $.ajax({
+        url: '/motions/json/',
+        dataType: 'json',
+        success: function(json){
+            $('#roller').xgame({
+                list: json,
+                button: $('#button-wrapper input'),
+                labelStart: 'スタート',
+                labelStop: 'ストップ'
+            });
+        }
+    });
+    $('input[name=\"data[scene]\"], input[name=\"data[Category][]\"]').on('change', function(){
+        console.log($('input[name=\"data[scene]\"][checked]').val());
+        console.log($('input[name=\"data[Category][]\"]').val());
+        $.ajax({
+            url: '/motions/json/',
+            dataType: 'json',
+            success: function(json){
+                $('#roller').xgame('setList', json);
+            }
+        });
     });
 });
 ", array('inline' => false));
 ?>
-</script>
 <div data-role="page">
 <div data-role="header">
     <h1>罰ゲームジェネレータ</h1>

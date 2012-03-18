@@ -170,6 +170,10 @@ $.widget("mobile.xgame",
                 }
             }
         });
+    },
+    setList: function(list){
+        var _self = this;
+        _self.options.list = list;
     }
 });
 }(jQuery));
