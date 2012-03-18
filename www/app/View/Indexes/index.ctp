@@ -38,24 +38,14 @@ $(function(){
             <h3>シーン</h3>
             <fieldset data-role="controlgroup">
             <legend>シーンを選択:</legend>
-             <input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked" />
-             <label for="radio-choice-1">合コン</label>
-             <input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2" checked="checked" />
-             <label for="radio-choice-2">学校</label>
-             <input type="radio" name="radio-choice-1" id="radio-choice-3" value="choice-3" checked="checked" />
-             <label for="radio-choice-3">ホームパーティ</label>
-             </fieldset>
+            <?php echo $this->Form->radio('scene', $scenes, array('legend' => false)); ?>
+            </fieldset>
         </div>
         <div data-role="collapsible" data-content-theme="c">
             <h3>ジャンル</h3>
             <fieldset data-role="controlgroup">
             <legend>ジャンルを選択:</legend>
-             <input type="checkbox" name="checkbox-choice-1" id="checkbox-choice-1" value="choice-1" checked="checked" />
-             <label for="checkbox-choice-1">ガテン系</label>
-             <input type="checkbox" name="checkbox-choice-2" id="checkbox-choice-2" value="choice-2" checked="checked" />
-             <label for="checkbox-choice-2">ものまね</label>
-             <input type="checkbox" name="checkbox-choice-3" id="checkbox-choice-3" value="choice-3" checked="checked" />
-             <label for="checkbox-choice-3">ネタ</label>
+            <?php echo $this->Form->input('Category', array('options' => $categories, 'multiple' => 'checkbox', 'legend' => false)); ?>
              </fieldset>
         </div>
     </div>
