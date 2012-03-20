@@ -42,7 +42,7 @@ $.widget("mobile.xgame",
          *
          * @type    Array
          */
-        list: undefined,
+        list: [],
         /**
          * Interval start value
          *
@@ -115,21 +115,20 @@ $.widget("mobile.xgame",
      */
     _init: function(){
         var _self = this;
-        _self._initRoller();
         _self._initButton();
+        _self._initRoller();
     },
     /**
-     * Initialize roller
+     * Update roller
      */
     _initRoller: function(){
         var _self = this,
-            index,
             pushList,
             i;
         _self.element.append(_self.ul);
+        $('li', _self.ul).remove();
         for(i = _self.options.viewCount; i !== 0; i--){
-            index = Math.floor(Math.random() * _self.options.list.length),
-            pushList = $('<li>' + _self.options.list[index] + '</li>');
+            pushList = $('<li>XXXX</li>');
             _self.ul.append(pushList);
         }
     },
@@ -171,6 +170,11 @@ $.widget("mobile.xgame",
             }
         });
     },
+    /**
+     * Set List
+     *
+     * @param list
+     */
     setList: function(list){
         var _self = this;
         _self.options.list = list;

@@ -1,29 +1,21 @@
 <?php
 $this->Html->scriptBlock("
 $(function(){
-    $.ajax({
-        url: '/motions/json/',
-        dataType: 'json',
-        success: function(json){
-            $('#roller').xgame({
-                list: json,
-                button: $('#button-wrapper input'),
-                labelStart: 'スタート',
-                labelStop: 'ストップ'
-            });
-        }
+    $('#roller').xgame({
+        button: $('#button-wrapper input'),
+        labelStart: 'スタート',
+        labelStop: 'ストップ'
     });
-    $('input[name=\"data[scene]\"], input[name=\"data[Category][]\"]').on('change', function(){
-        console.log($('input[name=\"data[scene]\"][checked]').val());
-        console.log($('input[name=\"data[Category][]\"]').val());
+    $('form input, form select').on('change', function(){
         $.ajax({
             url: '/motions/json/',
+            data: $('form').serialize(),
             dataType: 'json',
             success: function(json){
                 $('#roller').xgame('setList', json);
             }
         });
-    });
+    }).trigger('change');
 });
 ", array('inline' => false));
 ?>
@@ -38,28 +30,35 @@ $(function(){
             <input type="button" value="start / stop" data-inline="true" data-theme="a">
         </div>
     </div>
-    <div data-role="collapsible-set">
-        <div data-role="collapsible" data-content-theme="c">
-            <h3>シーン</h3>
-            <fieldset data-role="controlgroup">
-            <legend>シーンを選択:</legend>
-            <?php echo $this->Form->radio('scene', $scenes, array('legend' => false)); ?>
-            </fieldset>
-        </div>
-        <div data-role="collapsible" data-content-theme="c">
-            <h3>ジャンル</h3>
-            <fieldset data-role="controlgroup">
-            <legend>ジャンルを選択:</legend>
-            <?php echo $this->Form->input('Category', array('options' => $categories, 'multiple' => 'checkbox', 'legend' => false)); ?>
-             </fieldset>
-        </div>
-    </div>
-</div><!-- /content -->
+    <form method="get" action="./">
+        <div data-role="collapsible-set">
 <!--
-<div data-role="footer" data-position="fixed" class="ui-bar">
-    <a href="#config" data-role="button" data-icon="gear">Config</a>
-    <a href="#config" data-role="button" data-icon="info">Help</a>
-</div>
+            <div data-role="collapsible" data-content-theme="c">
+                <h3>シーン</h3>
+                <fieldset data-role="controlgroup">
+                <legend>シーンを選択:</legend>
+                <?php
+                echo $this->Form->input('scene', array(
+                    'options' => $scenes,
+                    'legend' => false
+                )); ?>
+                </fieldset>
+            </div>
 -->
-<!-- /footer -->
+            <div data-role="collapsible" data-content-theme="c">
+                <h3>ジャンル</h3>
+                <fieldset data-role="controlgroup">
+                <legend>ジャンルを選択:</legend>
+                <?php
+                echo $this->Form->input('category', array(
+                    'options' => $categories,
+                    'multiple' => 'checkbox',
+                    'selected' => array_keys($categories),
+                    'label' => false
+                )); ?>
+                 </fieldset>
+            </div>
+        </div>
+    </form>
+</div><!-- /content -->
 </div>

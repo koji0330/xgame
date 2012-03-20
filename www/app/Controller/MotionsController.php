@@ -192,7 +192,29 @@ class MotionsController extends AppController {
     }
 
     public function json(){
-        $motions = $this->Motion->find('list', array('fields' => 'name'));
+        $this->autoRender = false;
+        $this->layout = "ajax";
+        //$this->RequestHandler->setContent('json');
+        //$this->RequestHandler->respondAs('application/json; charset=UTF-8');
+        $this->Motion->recursive = 0;
+        if(isset($this->params['url']['data']['scene'])){
+            $scene = $this->params['url']['data']['scene'];
+        }else{
+            $scene = null;
+        }
+        if(isset($this->params['url']['data']['category'])){
+            $category = $this->params['url']['data']['category'];
+        }else{
+            $category = null;
+        }
+        $motions = $this->Motion->find('list',
+            array(
+                'fields' => 'name',
+                'conditions' => array(
+                    'Motion.category_id' => $category
+                )
+            )
+        );
         echo json_encode(array_values($motions));
         exit;
     }
